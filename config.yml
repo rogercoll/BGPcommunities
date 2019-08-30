@@ -1,0 +1,35 @@
+no_export:
+ - do_not_send:
+  - what: route
+    peers: EU
+    community: 971
+    as: 174
+  - what: route
+    peers: NA
+    community: 981
+    as: 174
+ - set_local_pref:
+  - value: 10
+    dest: NA
+    community: 975
+    as: 174
+  - value: 10
+    dest: EU
+    community: 985
+    as: 174
+
+local_preference:
+ - set_customer_route:
+  - value: 10
+    community: 10
+    as: 174
+  - value: 70
+    community: 70
+    as: 174
+
+peer_controls:
+ - do_not_announce:
+  - peers: all
+
+
+other_communities:
