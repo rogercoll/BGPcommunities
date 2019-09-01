@@ -32,4 +32,9 @@ peer_controls:
   - peers: all
 
 
-other_communities:
+other:
+ - what: route
+   action: learned
+   peer: EU
+   community: 21000
+   as: 174 
