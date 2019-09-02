@@ -7,24 +7,16 @@ import (
     "log"
 )
 
-type Cluster struct {
-	Name       string   `yaml:"name"`
-	DataCentre string   `yaml:"datacentre"`
-	Nodes      []string `yaml:"nodes"`
-}
-
 type DoNotSend struct {
 	What       string   `yaml:"what"`
 	Peers string   `yaml:"peers"`
 	Community       int64   `yaml:"community"`
-	AS int64   `yaml:"as"`
 }
 
 type SetLocPref struct {
 	Value       int   `yaml:"value"`
 	Destination string   `yaml:"dest"`
 	Community       int64   `yaml:"community"`
-	AS int64   `yaml:"as"`
 }
 
 type NoExport struct {
@@ -35,11 +27,27 @@ type NoExport struct {
 type SetCustomerRoute struct {
 	Value       int   `yaml:"value"`
 	Community       int64   `yaml:"community"`
-	AS int64   `yaml:"as"`
 }
 
 type LocalPreference struct {
 	SetCustomersRoute []SetCustomerRoute `yaml:"setcustomerroute"`
+}
+
+type DoNotAnnounce struct {
+	Peer string `yaml:"peer"`
+	Asn int64	`yaml:"asn"`
+	Community int64 `yaml:"community"`
+}
+
+type Prepend struct {
+	What string	`yaml:"what`
+	Times int	`yaml:"times"`
+	Community int64 `yaml:"community"`
+}
+
+type PeerControl struct {
+	DoNotAnnounces []DoNotAnnounce `yaml:"donotannounce"`
+	Prepends []Prepend `yaml:"prepend"`
 }
 
 type Other struct {
@@ -47,16 +55,14 @@ type Other struct {
 	Action string   `yaml:"action"`
 	From string   `yaml:"from"`
 	Community       int64   `yaml:"community"`
-	AS int64   `yaml:"as"`
 }
 
-type Configuration struct {
-	Clusters    []Cluster `yaml:"clusters"`
+type Configuration struct {	
 	Noexports    NoExport `yaml:"noexport"`
 	LocalPreferences LocalPreference `yaml:"localpreference"`
+	PeerControls PeerControl `yaml:"peercontrol"`
 	Others	[]Other `yaml:"other"`
-	MinReplicas int       `yaml:"min_replicas"`
-	MaxReplicas int       `yaml:"max_replicas"`
+	As int64       `yaml:"as"`
 }
 
 func (c *Configuration) getConf() *Configuration {
@@ -76,10 +82,11 @@ func (c *Configuration) getConf() *Configuration {
 func main() {
     var c Configuration
     c.getConf()
-
+	fmt.Println(c.As)
     fmt.Println(c.Noexports.DoNotSends[0])
 	fmt.Println(c.Noexports.DoNotSends[1])
 	fmt.Println(c.Noexports.SetLocPrefs[1])
 	fmt.Println(c.LocalPreferences)
 	fmt.Println(c.Others)
+	fmt.Println(c.PeerControls.Prepends)
 }
