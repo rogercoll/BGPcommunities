@@ -1,0 +1,52 @@
+clusters:
+- name: Dev
+  datacentre: Local
+  nodes:
+  - dev1.company.com
+  - dev2.company.com
+- name: Prod
+  datacentre: Amazon
+  nodes:
+  - prd1.company.com
+  - prd2.company.com
+  - prd3.company.com
+noexport:
+  donotsend:
+  - what: route
+    peers: EU
+    community: 971
+    as: 174
+  - what: route
+    peers: NA
+    community: 981
+    as: 174
+  setlocpref:
+  - value: 10
+    dest: EU
+    community: 985
+    as: 174
+  - value: 10
+    dest: NA
+    community: 975
+    as: 174
+localpreference:
+  setcustomerroute:
+    - value: 10
+      community: 10
+      as: 174
+    - value: 70
+      community: 70
+      as: 174
+other:
+  - what: route
+    action: learned
+    from: EU
+    community: 21000
+    as: 174
+  - what: route
+    action: learned
+    from: NA
+    community: 21100
+    as: 174
+min_replicas: 1
+max_replicas: 5
