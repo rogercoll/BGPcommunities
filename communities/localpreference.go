@@ -1,3 +1,5 @@
+package communities
+
 type SetCustomerRoute struct {
 	Value       int   `yaml:"value"`
 	Community       int64   `yaml:"community"`

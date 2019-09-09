@@ -1,3 +1,4 @@
+package communities
 type DoNotAnnounce struct {
 	Peer string `yaml:"peer"`
 	Asn int64	`yaml:"asn"`

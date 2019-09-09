@@ -1,3 +1,4 @@
+package communities
 type Other struct {
 	What       string   `yaml:"what"`
 	Action string   `yaml:"action"`

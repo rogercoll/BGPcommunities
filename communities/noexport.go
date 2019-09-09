@@ -1,3 +1,4 @@
+package communities
 type DoNotSend struct {
 	What       string   `yaml:"what"`
 	Peers string   `yaml:"peers"`
