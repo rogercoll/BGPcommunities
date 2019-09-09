@@ -8,6 +8,7 @@ import (
 	"github.com/golang/protobuf/proto"
 	language "cloud.google.com/go/language/apiv1"
 	languagepb "google.golang.org/genproto/googleapis/cloud/language/v1"
+	//"github.com/rogercoll/BGPcommunities/communities"
 )
 
 func printResp(v proto.Message, err error) {
@@ -33,6 +34,18 @@ func printSentences(m *languagepb.AnnotateTextResponse) {
 	for i,sentence := range sentences {
 		fmt.Printf("Sentence num:%v\n",i)
 		fmt.Println(sentence.String())
+	}
+}
+
+func parserCommunities(m *languagepb.AnnotateTextResponse) {
+	//conf := communities.NoExport{}
+	tokens := m.GetTokens()
+	for _,token := range tokens {
+		tTag := token.GetPartOfSpeech().GetTag()
+		//11 equals to VERB
+		if tTag == 11 {
+			fmt.Printf("Verb found: %s\n", token.GetLemma())
+		}
 	}
 }
 

@@ -5,7 +5,6 @@ import (
 	"context"
 	"testing"
 	language "cloud.google.com/go/language/apiv1"
-
 )
 
 func TestAnalizeSyntax(t *testing.T){
@@ -21,6 +20,7 @@ func TestAnalizeSyntax(t *testing.T){
 		log.Fatal(err)
 	}
 	printSentences(m)
+	parserCommunities(m)
 }
 
 
