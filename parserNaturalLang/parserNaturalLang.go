@@ -2,6 +2,7 @@ package parserNaturalLang
 
 import (
 	"os"
+	"fmt"
 	"log"
 	"context"
 	"github.com/golang/protobuf/proto"
@@ -25,6 +26,14 @@ func storeToFile(v proto.Message, err error) {
 		log.Fatal(err)
 	}
 	proto.MarshalText(f, v)
+}
+
+func printSentences(m *languagepb.AnnotateTextResponse) {
+	sentences := m.GetSentences()
+	for i,sentence := range sentences {
+		fmt.Printf("Sentence num:%v\n",i)
+		fmt.Println(sentence.String())
+	}
 }
 
 
