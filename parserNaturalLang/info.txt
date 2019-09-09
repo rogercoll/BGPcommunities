@@ -1,0 +1,186 @@
+sentences: <
+  text: <
+    content: "NO_EXPORT."
+  >
+>
+sentences: <
+  text: <
+    content: "Do not send route to NA 174:970."
+    begin_offset: 11
+  >
+>
+tokens: <
+  text: <
+    content: "NO_EXPORT"
+  >
+  part_of_speech: <
+    tag: NOUN
+    number: SINGULAR
+    proper: PROPER
+  >
+  dependency_edge: <
+    label: ROOT
+  >
+  lemma: "NO_EXPORT"
+>
+tokens: <
+  text: <
+    content: "."
+    begin_offset: 9
+  >
+  part_of_speech: <
+    tag: PUNCT
+  >
+  dependency_edge: <
+    label: P
+  >
+  lemma: "."
+>
+tokens: <
+  text: <
+    content: "Do"
+    begin_offset: 11
+  >
+  part_of_speech: <
+    tag: VERB
+    mood: INDICATIVE
+    tense: PRESENT
+  >
+  dependency_edge: <
+    head_token_index: 4
+    label: AUX
+  >
+  lemma: "Do"
+>
+tokens: <
+  text: <
+    content: "not"
+    begin_offset: 14
+  >
+  part_of_speech: <
+    tag: ADV
+  >
+  dependency_edge: <
+    head_token_index: 4
+    label: NEG
+  >
+  lemma: "not"
+>
+tokens: <
+  text: <
+    content: "send"
+    begin_offset: 18
+  >
+  part_of_speech: <
+    tag: VERB
+  >
+  dependency_edge: <
+    head_token_index: 4
+    label: ROOT
+  >
+  lemma: "send"
+>
+tokens: <
+  text: <
+    content: "route"
+    begin_offset: 23
+  >
+  part_of_speech: <
+    tag: NOUN
+    number: SINGULAR
+  >
+  dependency_edge: <
+    head_token_index: 4
+    label: DOBJ
+  >
+  lemma: "route"
+>
+tokens: <
+  text: <
+    content: "to"
+    begin_offset: 29
+  >
+  part_of_speech: <
+    tag: ADP
+  >
+  dependency_edge: <
+    head_token_index: 4
+    label: PREP
+  >
+  lemma: "to"
+>
+tokens: <
+  text: <
+    content: "NA"
+    begin_offset: 32
+  >
+  part_of_speech: <
+    tag: NOUN
+    number: SINGULAR
+    proper: PROPER
+  >
+  dependency_edge: <
+    head_token_index: 6
+    label: POBJ
+  >
+  lemma: "NA"
+>
+tokens: <
+  text: <
+    content: "174"
+    begin_offset: 35
+  >
+  part_of_speech: <
+    tag: NUM
+  >
+  dependency_edge: <
+    head_token_index: 7
+    label: NUM
+  >
+  lemma: "174"
+>
+tokens: <
+  text: <
+    content: ":"
+    begin_offset: 38
+  >
+  part_of_speech: <
+    tag: PUNCT
+  >
+  dependency_edge: <
+    head_token_index: 7
+    label: P
+  >
+  lemma: ":"
+>
+tokens: <
+  text: <
+    content: "970"
+    begin_offset: 39
+  >
+  part_of_speech: <
+    tag: NUM
+  >
+  dependency_edge: <
+    head_token_index: 7
+    label: APPOS
+  >
+  lemma: "970"
+>
+tokens: <
+  text: <
+    content: "."
+    begin_offset: 42
+  >
+  part_of_speech: <
+    tag: PUNCT
+  >
+  dependency_edge: <
+    head_token_index: 4
+    label: P
+  >
+  lemma: "."
+>
+document_sentiment: <
+>
+language: "en"
