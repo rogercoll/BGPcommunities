@@ -14,12 +14,12 @@ func TestAnalizeSyntax(t *testing.T){
 			log.Fatalf("Failed to create client: %v", err)
 	}
 	// Sets the text to analyze.
-	text := "NO_EXPORT.\nDo not send route to NA 174:970.\n"
+	text := readFromFile("examples/as174.txt")
 	m, err := analyzeSyntax(ctx,client,text)
 	if err != nil {
 		log.Fatal(err)
 	}
-	printSentences(m)
+	//printSentences(m)
 	parserCommunities(m)
 }
 

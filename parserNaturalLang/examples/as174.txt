@@ -1,0 +1,55 @@
+NO_EXPORT.
+Do not send route to NA 174:970.
+Do not send route to NA peers 174:971.
+Set local preference to 10 in NA 174:975.
+Do not send route to EU 174:980.
+Do not send route to EU peers 174:981.
+Set local preference to 10 in EU 174:985.
+Do not send route to BGP customers or peers 174:990.
+Do not send route to peers 174:991.
+
+
+LOCAL_PREFERENCE.
+Set customer route local preference to 10 174:10.
+Set customer route local preference to 70 174:70.
+Set customer route local preference to 120 174:120.
+Set customer route local preference to 125 174:125.
+Set customer route local preference to 135 174:135.
+Set customer route local preference to 140 174:140.
+
+PEER_CONTROLS.
+Do not announce to all peers 0 174:3000.
+Do not announce to NTT 2914 174:3010.
+Do not announce to Level3 3356 174:3030.
+Do not announce to Tiscali 3257 174:3120.	
+Do not announce to Google 15169 174:3180.	
+Do not announce to UPC 6830 174:3170.
+Do not announce to France Telecom 5511 174:3050.
+Do not announce to Zayo 6461 174:3060.
+Do not announce to Sprint 1239 174:3070.
+Do not announce to Telia 1299 174:3080.
+Do not announce to Verizon 701 174:3090.
+Do not announce to KPN 286 174:3100.
+Do not announce to UUNet EU 702 174:3100.
+Do not announce to DTAG 3320 174:3130.
+Do not announce to Global Crossing 3549 174:3140.
+Do not announce to Teleglobe 6453 174:3150.
+Do not announce to ATT 7018 174:3160.
+Do not announce to CW 1273 174:3190.
+Do not announce to Cablevision 6128 174:3200.
+Do not announce to Qwest Centurylink 209 174:3210.
+Do not announce to TelecomItalia 6762 174:3220.
+Do not announce to Savvis 3561 174:3230.
+Do not announce to Bellnexxia 577 174:3240.
+Do not announce to TDC 3292 174:3250.
+Do not announce to Tele2 1257 174:3260.
+Do not announce to XO 2828 174:3270.
+Do not announce to Telus 852 174:3280.
+Do not announce to China Telecom 4134 174:3290.
+Do not announce to Comcast 7922 174:3300.
+
+OTHER_COMMUNITIES.
+Route is learned from NA 174:21000.
+Route is NA internal 174:21001.
+Route is learned from EU 174:21100.
+Route is a EU internal 174:21101.
