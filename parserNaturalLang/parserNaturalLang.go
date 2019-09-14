@@ -69,7 +69,8 @@ func parserCommunities(m *languagepb.AnnotateTextResponse) {
 			tokensForSentence = append(tokensForSentence, token)
 			continue
 		} else {
-			parseSentenceTokens(tokensForSentence)
+			//THIS CAN BE DONE IN PARALLEL
+			go parseSentenceTokens(tokensForSentence)
 			tokensForSentence = nil
 		}
 		//11 equals to VERB
