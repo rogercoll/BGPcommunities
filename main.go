@@ -4,7 +4,8 @@ import (
     "fmt"
     "gopkg.in/yaml.v2"
     "io/ioutil"
-    "log"
+	"log"
+	"github.com/rogercoll/BGPcommunities/parserNatrualLang"
 )
 
 type DoNotSend struct {
@@ -82,11 +83,5 @@ func (c *Configuration) getConf() *Configuration {
 func main() {
     var c Configuration
     c.getConf()
-	fmt.Println(c.As)
-    fmt.Println(c.Noexports.DoNotSends[0])
-	fmt.Println(c.Noexports.DoNotSends[1])
-	fmt.Println(c.Noexports.SetLocPrefs[1])
-	fmt.Println(c.LocalPreferences)
-	fmt.Println(c.Others)
-	fmt.Println(c.PeerControls.Prepends)
+	
 }

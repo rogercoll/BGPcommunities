@@ -5,12 +5,18 @@ import (
 	"fmt"
 	"log"
 	"context"
+	"strconv"
 	"io/ioutil"
 	"github.com/golang/protobuf/proto"
 	language "cloud.google.com/go/language/apiv1"
 	languagepb "google.golang.org/genproto/googleapis/cloud/language/v1"
-	//"github.com/rogercoll/BGPcommunities/communities"
+	"github.com/rogercoll/BGPcommunities/communities"
 )
+
+var noExports communities.NoExport
+var localPreference	communities.LocalPreference
+var peerControls	communities.PeerControl
+var other	communities.Other
 
 func printResp(v proto.Message, err error) {
 	if err != nil {
@@ -51,18 +57,48 @@ func printSentences(m *languagepb.AnnotateTextResponse) {
 }
 
 func parseSentenceTokens(sentence []*languagepb.Token) {
-	for token := range sentence {
-
+	fmt.Println("Alooo")
+	var err error
+	var as,community int
+	foundDoublePoint := false
+	for _,token := range sentence {
+		fmt.Printf("%s ",token.GetText().String())
+		tTag := token.GetPartOfSpeech().GetTag()
+		//11 equals to VERB
+		if tTag == 11 {
+			fmt.Printf("Verb found: %s\n", token.GetLemma())
+		}
+		if tTag == 10 {
+			if token.GetText().String() == ":" {
+				foundDoublePoint = true
+			}
+		}
+		//7 equals to NUM
+		if tTag == 7 {
+			if foundDoublePoint {
+				community, err = strconv.Atoi(token.GetText().String())
+				if err != nil {
+					log.Fatal(err)
+				}
+			} else {
+				as, err = strconv.Atoi(token.GetText().String())
+				if err != nil {
+					log.Fatal(err)
+				}
+			}
+		}
 	}
+	fmt.Println()
+	fmt.Println(as)
+	fmt.Println(community)
 }
 
 
 func parserCommunities(m *languagepb.AnnotateTextResponse) {
 	//conf := communities.NoExport{}
 	tokens := m.GetTokens()
-	totalSize := len(tokens)
 	var tokensForSentence []*languagepb.Token
-	for i,token := range tokens {
+	for _,token := range tokens {
 		tTag := token.GetPartOfSpeech().GetTag()
 		//10 equals to PUNCT
 		if tTag != 10 && token.GetLemma() != "." {
@@ -73,13 +109,7 @@ func parserCommunities(m *languagepb.AnnotateTextResponse) {
 			go parseSentenceTokens(tokensForSentence)
 			tokensForSentence = nil
 		}
-		//11 equals to VERB
-		if tTag == 11 {
-			fmt.Printf("Verb found: %s\n", token.GetLemma())
-			if ((i + 3) < totalSize) {
-				i += 3
-			}
-		}
+		
 	}
 }
 
