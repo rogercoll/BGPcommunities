@@ -1,11 +1,12 @@
 package main
 
 import (
-    "fmt"
-    "gopkg.in/yaml.v2"
-    "io/ioutil"
+	"os"
 	"log"
-	"github.com/rogercoll/BGPcommunities/parserNatrualLang"
+	"context"
+	"io/ioutil"
+    "gopkg.in/yaml.v2"
+	"github.com/rogercoll/BGPcommunities/parserNaturalLang"
 )
 
 type DoNotSend struct {
@@ -80,8 +81,28 @@ func (c *Configuration) getConf() *Configuration {
     return c
 }
 
+func readFromFile(path string) string {
+	file, err := os.Open(path)
+    if err != nil {
+        log.Fatal(err)
+    }
+    defer file.Close()
+  	b, err := ioutil.ReadAll(file)
+	return string(b)
+}
+
 func main() {
     var c Configuration
-    c.getConf()
-	
+	c.getConf()
+	ctx := context.Background()
+	client, err := parserNaturalLang.NewClient(ctx)
+	if err != nil {
+		log.Fatal(err)
+	}
+	text := readFromFile("parserNaturalLang/examples/as174.txt")
+	m, err := parserNaturalLang.AnalyzeSyntax(ctx,client,text)
+	if err != nil {
+		log.Fatal(err)
+	}
+	parserNaturalLang.ParserCommunities(m)
 }

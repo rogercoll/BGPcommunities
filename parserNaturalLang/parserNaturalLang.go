@@ -6,7 +6,6 @@ import (
 	"log"
 	"context"
 	"strconv"
-	"io/ioutil"
 	"github.com/golang/protobuf/proto"
 	language "cloud.google.com/go/language/apiv1"
 	languagepb "google.golang.org/genproto/googleapis/cloud/language/v1"
@@ -36,15 +35,7 @@ func storeToFile(v proto.Message, err error) {
 	proto.MarshalText(f, v)
 }
 
-func readFromFile(path string) string {
-	file, err := os.Open(path)
-    if err != nil {
-        log.Fatal(err)
-    }
-    defer file.Close()
-  	b, err := ioutil.ReadAll(file)
-	return string(b)
-}
+
 
 func printSentences(m *languagepb.AnnotateTextResponse) {
 	sentences := m.GetSentences()
@@ -57,31 +48,31 @@ func printSentences(m *languagepb.AnnotateTextResponse) {
 }
 
 func parseSentenceTokens(sentence []*languagepb.Token) {
-	fmt.Println("Alooo")
+	//fmt.Println(len(sentence))
 	var err error
 	var as,community int
 	foundDoublePoint := false
 	for _,token := range sentence {
-		fmt.Printf("%s ",token.GetText().String())
+		fmt.Printf("%v ", token.GetLemma())
 		tTag := token.GetPartOfSpeech().GetTag()
 		//11 equals to VERB
 		if tTag == 11 {
 			fmt.Printf("Verb found: %s\n", token.GetLemma())
 		}
 		if tTag == 10 {
-			if token.GetText().String() == ":" {
+			if token.GetLemma() == ":" {
 				foundDoublePoint = true
 			}
 		}
 		//7 equals to NUM
 		if tTag == 7 {
 			if foundDoublePoint {
-				community, err = strconv.Atoi(token.GetText().String())
+				community, err = strconv.Atoi(token.GetLemma())
 				if err != nil {
 					log.Fatal(err)
 				}
 			} else {
-				as, err = strconv.Atoi(token.GetText().String())
+				as, err = strconv.Atoi(token.GetLemma())
 				if err != nil {
 					log.Fatal(err)
 				}
@@ -94,27 +85,27 @@ func parseSentenceTokens(sentence []*languagepb.Token) {
 }
 
 
-func parserCommunities(m *languagepb.AnnotateTextResponse) {
+func ParserCommunities(m *languagepb.AnnotateTextResponse) {
 	//conf := communities.NoExport{}
 	tokens := m.GetTokens()
 	var tokensForSentence []*languagepb.Token
 	for _,token := range tokens {
 		tTag := token.GetPartOfSpeech().GetTag()
 		//10 equals to PUNCT
-		if tTag != 10 && token.GetLemma() != "." {
+		if tTag == 10 && token.GetLemma() == "." {
+			//THIS CAN BE DONE IN PARALLEL
+			parseSentenceTokens(tokensForSentence)
+			tokensForSentence = nil
+		} else {
 			tokensForSentence = append(tokensForSentence, token)
 			continue
-		} else {
-			//THIS CAN BE DONE IN PARALLEL
-			go parseSentenceTokens(tokensForSentence)
-			tokensForSentence = nil
 		}
 		
 	}
 }
 
 
-func analyzeSyntax(ctx context.Context, client *language.Client, text string) (*languagepb.AnnotateTextResponse, error) {
+func AnalyzeSyntax(ctx context.Context, client *language.Client, text string) (*languagepb.AnnotateTextResponse, error) {
 	return client.AnnotateText(ctx, &languagepb.AnnotateTextRequest{
 		Document: &languagepb.Document{
 			Source: &languagepb.Document_Content{
@@ -129,3 +120,6 @@ func analyzeSyntax(ctx context.Context, client *language.Client, text string) (*
 	})
 }
 
+func NewClient(ctx context.Context) (*language.Client, error) {
+	return language.NewClient(ctx)
+}
