@@ -2,7 +2,7 @@ package communities
 
 type SetCustomerRoute struct {
 	Value       int   `yaml:"value"`
-	Community       int64   `yaml:"community"`
+	Community       int   `yaml:"community"`
 }
 
 type LocalPreference struct {
