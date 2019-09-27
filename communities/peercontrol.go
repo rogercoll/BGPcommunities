@@ -1,8 +1,8 @@
 package communities
 type DoNotAnnounce struct {
 	Peer string `yaml:"peer"`
-	Asn int64	`yaml:"asn"`
-	Community int64 `yaml:"community"`
+	Asn int	`yaml:"asn"`
+	Community int `yaml:"community"`
 }
 
 type Prepend struct {

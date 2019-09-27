@@ -6,6 +6,7 @@ import (
 	"log"
 	"context"
 	"strconv"
+	"gopkg.in/yaml.v2"
 	"github.com/golang/protobuf/proto"
 	language "cloud.google.com/go/language/apiv1"
 	languagepb "google.golang.org/genproto/googleapis/cloud/language/v1"
@@ -13,10 +14,10 @@ import (
 )
 
 type Configuration struct {	
-	Noexports    communities.NoExport `yaml:"noexport"`
-	LocalPreferences communities.LocalPreference `yaml:"localpreference"`
-	PeerControls communities.PeerControl `yaml:"peercontrol"`
-	Others	[]communities.Other `yaml:"other"`
+	Noexports    communities.NoExport `yaml:"noexport,omitempty"`
+	LocalPreferences communities.LocalPreference `yaml:"localpreference,omitempty"`
+	PeerControls communities.PeerControl `yaml:"peercontrol,omitempty"`
+	Others	[]communities.Other `yaml:"other,omitempty"`
 	As int       `yaml:"as"`
 }
 
@@ -133,8 +134,6 @@ func parseSentencesNoExport(sentence []*languagepb.Token) (error) {
 }
 
 func parseSentencesLocalPreference(sentence []*languagepb.Token) (error) {
-	//comm := communities.LocalPreference{}
-	fmt.Println("Hey LocalPreference sentence")
 	var err error
 	var as,community,locPrefValue int
 	nextPeer, nextLocValue := false, false
@@ -195,16 +194,99 @@ func parseSentencesLocalPreference(sentence []*languagepb.Token) (error) {
 }
 
 func parseSentencesPeerControls(sentence []*languagepb.Token) (error) {
-	//comm := communities.PeerControl{}
-	fmt.Println("Hey PeerControls sentence")
-
+	var err error
+	var as,community,asnValue int
+	nextPeer := false
+	peers := ""
+	foundDoublePoint := false
+	for _,token := range sentence {
+		//fmt.Printf("Lemma: %v ", token.GetLemma())
+		tTag := token.GetPartOfSpeech().GetTag()
+		//fmt.Printf("Tag :%v ", tTag)
+		//2 equals to Adposition (preposition and postposition)
+		if tTag == 2 {
+			if token.GetLemma() == "to" {
+				nextPeer = true
+				continue
+			}
+		}
+		if tTag == 10 {
+			if token.GetLemma() == ":" {
+				foundDoublePoint = true
+			}
+		}
+		//7 equals to NUM
+		if tTag == 7 {
+			if nextPeer {
+				asnValue, err = strconv.Atoi(token.GetLemma())
+				if err != nil {
+					return err
+				}
+				nextPeer = false
+			} else {
+				if foundDoublePoint {
+					community, err = strconv.Atoi(token.GetLemma())
+					if err != nil {
+						return err
+					}
+				} else {
+					as, err = strconv.Atoi(token.GetLemma())
+					if err != nil {
+						return err
+					}
+				}
+			}
+		}
+		if nextPeer {
+			peers += token.GetLemma() + " "
+			continue
+		}
+	}
+	fmt.Println()
+	newConf.As = as
+	comm := communities.DoNotAnnounce{Peer: peers, Asn: asnValue, Community: community}
+	newConf.PeerControls.DoNotAnnounces = append(newConf.PeerControls.DoNotAnnounces, comm)
+	fmt.Println(comm)
 	return nil
 }
 
 func parseSentencesOther(sentence []*languagepb.Token) (error) {
-	//comm := communities.Other{}
-	fmt.Println("Hey Other sentence")
-
+	var err error
+	from, what, verbs := "", "", ""
+	fromdetect, foundDoublePoint := false, false
+	var community int
+	for _,token := range sentence {
+		tTag := token.GetPartOfSpeech().GetTag()
+		if fromdetect {
+			from = token.GetLemma()
+			fromdetect = false
+			continue
+		}
+		if tTag == 2 && token.GetLemma() == "from" {
+			fromdetect = true
+		}
+		if tTag == 10 {
+			if token.GetLemma() == ":" {
+				foundDoublePoint = true
+			}
+		}
+		if tTag == 7 {
+			if foundDoublePoint {
+				community, err = strconv.Atoi(token.GetLemma())
+				if err != nil {
+					return err
+				}
+			}
+		}
+		if tTag == 6 || tTag == 1 {
+			what += token.GetText().GetContent()
+		}
+		if tTag == 11 {
+			verbs += token.GetText().GetContent()
+		}
+	}
+	comm := communities.Other{From: from, Community: community, What: what, Action: verbs}
+	newConf.Others = append(newConf.Others, comm)
 	return nil
 }
 
@@ -286,6 +368,18 @@ func ParserCommunities(m *languagepb.AnnotateTextResponse) {
 			}
 			
 		}
+	}
+	b, err := yaml.Marshal(newConf)
+	if err != nil {
+		log.Fatal(err)
+	}
+	f, err := os.Create("yaml/as" + strconv.Itoa(newConf.As))
+	if err != nil {
+		log.Fatal(err)
+	}
+	_, err = f.Write(b)
+	if err != nil {
+		log.Fatal(err)
 	}
 }
 
