@@ -1,0 +1,3 @@
+LOCAL_PREFERENCE.
+577:140 Local preference = 140 customer primary.
+577:130 Local preference = 130 customer back-up.

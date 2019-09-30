@@ -157,6 +157,9 @@ func parseSentencesLocalPreference(sentence []*languagepb.Token) (error) {
 				peers += token.GetLemma() + " "
 			}
 		}
+		if token.GetText().GetContent() == "="{
+			nextLocValue = true
+		}
 		if tTag == 10 {
 			if token.GetLemma() == ":" {
 				foundDoublePoint = true
@@ -339,7 +342,7 @@ func ParserCommunities(m *languagepb.AnnotateTextResponse) {
 		//10 equals to PUNCT
 		if token.GetLemma() == "NO_EXPORT" {
 			action = token.GetLemma()
-		} else if token.GetLemma() == "LOCAL_PREFERENCE" {
+		} else if token.GetLemma() == "LOCAL_PREFERENCE" || token.GetLemma() == "LOCAL_PREFERENCE." {
 			action = token.GetLemma()
 		} else if token.GetLemma() == "PEER_CONTROLS" {
 			action = token.GetLemma()
@@ -351,7 +354,7 @@ func ParserCommunities(m *languagepb.AnnotateTextResponse) {
 				if action == "NO_EXPORT" {
 					parseSentencesNoExport(tokensForSentence)
 					tokensForSentence = nil
-				} else if action == "LOCAL_PREFERENCE" {
+				} else if action == "LOCAL_PREFERENCE" || action == "LOCAL_PREFERENCE." {
 					parseSentencesLocalPreference(tokensForSentence)
 					tokensForSentence = nil
 				} else if action == "PEER_CONTROLS" {
