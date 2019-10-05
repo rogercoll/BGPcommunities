@@ -75,13 +75,13 @@ func parseSentencesNoExport(sentence []*languagepb.Token) (error) {
 		}
 		//2 equals to Adposition (preposition and postposition)
 		if tTag == 2 {
-			if token.GetLemma() == "to" {
+			if token.GetText().GetContent() == "to" {
 				if doNotSent {
 					nextPeer = true
 				} else {
 					nextLocValue = true
 				}
-			} else if token.GetLemma() == "in" {
+			} else if token.GetText().GetContent() == "in" {
 				nextPeer = true
 			}
 		}
@@ -144,10 +144,13 @@ func parseSentencesLocalPreference(sentence []*languagepb.Token) (error) {
 		tTag := token.GetPartOfSpeech().GetTag()
 		//fmt.Printf("Tag :%v ", tTag)
 		//2 equals to Adposition (preposition and postposition)
+		if token.GetText().GetContent() == "tp" || token.GetText().GetContent() == "pref"{
+			nextLocValue = true
+		}
 		if tTag == 2 {
-			if token.GetLemma() == "to" {
+			if token.GetText().GetContent() == "to" {
 				nextLocValue = true
-			} else if token.GetLemma() == "in" {
+			} else if token.GetText().GetContent() == "in" {
 				nextPeer = true
 			}
 		}
@@ -254,6 +257,7 @@ func parseSentencesPeerControls(sentence []*languagepb.Token) (error) {
 }
 
 func parseSentencesOther(sentence []*languagepb.Token) (error) {
+	fmt.Println("hey")
 	var err error
 	from, what, verbs := "", "", ""
 	fromdetect, foundDoublePoint := false, false
@@ -346,7 +350,7 @@ func ParserCommunities(m *languagepb.AnnotateTextResponse) {
 			action = token.GetLemma()
 		} else if token.GetLemma() == "PEER_CONTROLS" {
 			action = token.GetLemma()
-		} else if token.GetLemma() == "OTHER_COMMUNITIES" {
+		} else if token.GetLemma() == "OTHER_COMMUNITIES" || token.GetLemma() == "OTHER_COMMUNITIES." {
 			action = token.GetLemma()
 		} else {
 			if tTag == 10 && token.GetLemma() == "." {
@@ -360,7 +364,7 @@ func ParserCommunities(m *languagepb.AnnotateTextResponse) {
 				} else if action == "PEER_CONTROLS" {
 					parseSentencesPeerControls(tokensForSentence)
 					tokensForSentence = nil
-				} else if action == "OTHER_COMMUNITIES" {
+				} else if action == "OTHER_COMMUNITIES" || action == "OTHER_COMMUNITIES." {
 					parseSentencesOther(tokensForSentence)
 					tokensForSentence = nil
 				}

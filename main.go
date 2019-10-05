@@ -48,7 +48,7 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	text := readFromFile("parserNaturalLang/examples/as174.txt")
+	text := readFromFile("parserNaturalLang/examples/as1759.txt")
 	m, err := parserNaturalLang.AnalyzeSyntax(ctx,client,text)
 	if err != nil {
 		log.Fatal(err)

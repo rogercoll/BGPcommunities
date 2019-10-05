@@ -1,0 +1,4 @@
+LOCAL_PREFERENCE.
+1273:90	Sets local preference value within AS1273 to 90.
+1273:80	Sets local preference value within AS1273 to 80.
+1273:70	Sets local preference value within AS1273 to 70.

@@ -1,0 +1,7 @@
+LOCAL_PREFERENCE.
+1759:1050 Set local pref 50 (lower than upstream LP).
+1759:1110 Set local pref 110 (lower than CIX LP).
+1759:1150 Set local pref 150 (lower than primary customer LP).
+
+OTHER_COMMUNITIES.
+1759:666 Black hole routing.
