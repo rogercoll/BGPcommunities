@@ -43,15 +43,26 @@ func main() {
     var c Configuration
 	c.getConf()
 	*/
-	ctx := context.Background()
-	client, err := parserNaturalLang.NewClient(ctx)
-	if err != nil {
-		log.Fatal(err)
+	dir := "/home/neck/Documents/Uni/TFG/BGPcommunities/parserNaturalLang/examples/"
+	files, err := ioutil.ReadDir(dir)
+    if err != nil {
+        log.Fatal(err)
 	}
-	text := readFromFile("parserNaturalLang/examples/as1759.txt")
-	m, err := parserNaturalLang.AnalyzeSyntax(ctx,client,text)
-	if err != nil {
-		log.Fatal(err)
+	for _,f := range files {
+		log.Println(f.Name())
+		text := ""
+		text = readFromFile(dir + f.Name())
+		log.Println(text)
+		ctx := context.Background()
+		client, err := parserNaturalLang.NewClient(ctx)
+		if err != nil {
+			log.Fatal(err)
+		}
+		m, err := parserNaturalLang.AnalyzeSyntax(ctx,client,text)
+		if err != nil {
+			log.Fatal(err)
+		}
+		parserNaturalLang.ParserCommunities(m)
 	}
-	parserNaturalLang.ParserCommunities(m)
+	
 }

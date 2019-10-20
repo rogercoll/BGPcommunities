@@ -337,7 +337,7 @@ func parseSentenceTokens(sentence []*languagepb.Token)  {
 
 
 func ParserCommunities(m *languagepb.AnnotateTextResponse) {
-	//conf := communities.NoExport{}
+	newConf = Configuration{}
 	tokens := m.GetTokens()
 	var tokensForSentence []*languagepb.Token
 	action := ""
@@ -380,6 +380,7 @@ func ParserCommunities(m *languagepb.AnnotateTextResponse) {
 	if err != nil {
 		log.Fatal(err)
 	}
+	fmt.Println(string(b))
 	f, err := os.Create("yaml/as" + strconv.Itoa(newConf.As))
 	if err != nil {
 		log.Fatal(err)
