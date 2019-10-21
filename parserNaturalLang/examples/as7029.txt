@@ -1,0 +1,12 @@
+LOCAL_PREFERENCE.
+7029:50 Set local preference to 50.
+7029:60 Set local preference to 60.
+7029:70 Set local preference to 70.
+7029:80 Set local preference to 80.
+7029:90 Set local preference to 90.
+7029:120 Set local preference to 120.
+
+OTHER.
+7029:4506 Blackhole route on AS7029 only.
+7029:4507 Blackhole route on AS7029 and advertise to our transit providers.
+7029:166 Advertise to transit as backup path only.
