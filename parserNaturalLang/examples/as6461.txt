@@ -1,0 +1,39 @@
+PEER_CONTROLS.
+6461:5001       prepend 1x to all peers.
+6461:5002       prepend 2x to all peers.
+6461:5003       prepend 3x times to all peers.
+6461:5011       prepend 1x to all EU peers.
+6461:5012       prepend 2x to all EU peers.
+6461:5013       prepend 3x times to all EU peers.
+6461:5501       prepend 1x to UUNET (AS701).
+6461:5502       prepend 2x to UUNET (AS701).
+6461:5500       do not announce to UUNET (AS701).
+6461:5503       prepend 3x times to UUNET (AS701).
+6461:5511       prepend 1x to Sprint (AS1239).
+6461:5512       prepend 2x to Sprint (AS1239).
+6461:5510       do not announce to Sprint (AS1239).
+6461:5513       prepend 3x times to Sprint (AS1239).
+6461:5521       prepend 1x to Cable & Wireless (AS3561).
+6461:5522       prepend 2x to Cable & Wireless (AS3561).
+6461:5523       prepend 3x times to Cable & Wireless (AS3561).
+6461:5531       prepend 1x to AOL (AS1668).
+6461:5532       prepend 2x to AOL (AS1668).
+6461:5533       prepend 3x times to AOL (AS1668).
+6461:5541       prepend 1x to AT&T (AS7018).
+6461:5542       prepend 2x to AT&T (AS7018).
+6461:5543       prepend 3x times to AT&T (AS7018).
+6461:5550       do not announce to Level3 (AS3356).
+6461:5551       prepend 1x to Level3 (AS3356).
+6461:5552       prepend 2x to Level3 (AS3356).
+6461:5553       prepend 3x times to Level3 (AS3356).
+6461:5560       do not announce to SBC (AS7132).
+6461:5561       prepend 1x to SBC (AS7132).
+6461:5562       prepend 2x to SBC (AS7132).
+6461:5563       prepend 3x times to SBC (AS7132).
+6461:5530       do not announce to AOL (AS1668).
+6461:5520       do not announce to Cable & Wireless (AS3561).
+
+LOCAL_PREFERENCE.
+6461:5060       set localpref inside AS6461 to 60.
+6461:5180       set localpref inside AS6461 to 180.
+6461:5220       set localpref inside AS6461 to 220.
