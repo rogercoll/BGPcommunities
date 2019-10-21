@@ -1,0 +1,9 @@
+LOCAL_PREFERENCE.
+6730:0001 set local pref to 95.
+6730:0002 set local pref to 94.
+6730:0003 set local pref to 85.
+6730:0004 set local pref to 84.
+6730:0005 set local pref to 75.
+6730:0006 set local pref to 74.
+6730:0007 set local pref to 65.
+6730:0008 set local pref to 64.
