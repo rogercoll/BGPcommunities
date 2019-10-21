@@ -1,0 +1,33 @@
+NO_EXPORT.
+3320:65001	Do not advertise route(s) to AS3320 peers.
+3320:65002	Do not advertise route(s) to AS3320 upstream.
+3320:65003 Do not advertise route(s) to AS3320 peers and upstream.
+
+OTHER_COMMUNITIES.
+3320:2010	Imported in Europe.
+3320:2020	Imported in North America.
+3320:2030	Imported in Asia Pacific.
+3320:1040	Imported in Austria.
+3320:1056	Imported in Belgium.
+3320:1124	Imported in Canada.
+3320:1203	Imported in Czech Republic.
+3320:1208	Imported in Denmark.
+3320:1246	Imported in Finland.
+3320:1250	Imported in France.
+3320:1276	Imported in Germany.
+3320:1344	Imported in Hong Kong.
+3320:1348	Imported in Hungary.
+3320:1380	Imported in Italy.
+3320:1392	Imported in Japan.
+3320:1528	Imported in the Netherlands.
+3320:1578	Imported in Norway.
+3320:1616	Imported in Poland.
+3320:1702	Imported in Singaporey.
+3320:1724	Imported in Spain.
+3320:1752	Imported in Sweden.
+3320:1756	Imported in Switzerland.
+3320:1826	Imported in Great Britain.
+3320:1840	Imported in the USA.
+3320:9010	Imported from a customer.
+3320:9020	Imported from a peer.
+3320:9030	Imported from a upstream provider.
