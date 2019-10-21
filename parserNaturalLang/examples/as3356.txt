@@ -1,0 +1,8 @@
+PEER_CONTROLS.
+3356:64983 - prepend 3x to all EU peers.
+3356:64983 - prepend 4x to all EU peers.
+
+LOCAL_PREFERENCE.
+3356:70 - set local preference to 70.
+3356:80 - set local preference to 80.
+3356:90 - set local preference to 90.

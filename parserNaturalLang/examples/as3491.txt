@@ -1,0 +1,13 @@
+PEER_CONTROLS.
+3491:60041	prepend to Coagent 1x.
+3491:60042	prepend to Coagent 2x.
+3491:60043	prepend to Coagent 3x.
+3491:60131	prepend to ATT 1x.
+3491:60132	prepend to ATT 2x.
+3491:60133	prepend to ATT 3x.
+3491:60061	prepend to Qwest 1x.
+3491:60062	prepend to Qwest 2x.
+3491:60063	prepend to Qwest 3x.
+3491:60091	prepend to Verizon 1x.
+3491:60092	prepend to Verizon 2x.
+3491:60093	prepend to Verizon 3x.
