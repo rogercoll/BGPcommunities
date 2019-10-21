@@ -1,0 +1,15 @@
+LOCAL_PREFERENCE.
+6855:50 set local preference to 50.
+6855:90 set local preference to 90.
+
+PEER_CONTROLS.
+6855:1101 Do not announce to SIX.
+6855:1102 Do not announce to DT AS3320.
+6855:1107 Do not announce to TeliaSonera AS1299.
+6855:1112 Do not announce to Supernetwork AS39392.
+
+OTHER_COMMUNITIES.
+6855:2401 Routes from SIX peering.
+6855:2402 Routes from DT.
+6855:2407 Routes from TeliaSonera.
+6855:2412 Routes from Supernetwork.
