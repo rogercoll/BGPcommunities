@@ -1,0 +1,24 @@
+PEER_CONTROLS.
+3257:1030	do not announce to upstream. 
+3257:2490	do not announce in Europe.
+3257:2590	do not announce in Asia.
+3257:2990	do not announce in the US. 
+3257:2998	do not announce to any peer.
+3257:1031	prepend 1x to upstream. 
+3257:1032	prepend 2x to upstream. 
+3257:1033	prepend 3x to upstream. 
+3257:2291	prepend 1x to any peering partner.
+3257:2292	prepend 2x to any peering partner.
+3257:2293	prepend 3x to any peering partner.
+3257:2491	prepend 1x in Europe.
+3257:2492	prepend 2x in Europe.
+3257:2493	prepend 3x in Europe.
+3257:2591	prepend 1x in Asia.
+3257:2592	prepend 2x in Asia.
+3257:2593	prepend 3x in Asia.
+3257:2991	prepend 1x in the US.
+3257:2992	prepend 2x in the US.
+3257:2993	prepend 3x in the US.
+
+OTHER.
+3257:2666 blackhole.

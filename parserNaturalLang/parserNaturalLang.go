@@ -218,7 +218,7 @@ func parseSentencesPeerControls(sentence []*languagepb.Token) (error) {
 		}
 		//2 equals to Adposition (preposition and postposition)
 		if tTag == 2 {
-			if token.GetLemma() == "to" {
+			if token.GetLemma() == "to" || token.GetLemma() == "in" {
 				nextPeer = true
 				continue
 			}
@@ -251,8 +251,7 @@ func parseSentencesPeerControls(sentence []*languagepb.Token) (error) {
 				
 			}
 		}
-		if nextPeer {
-			aux := token.GetText().GetContent()
+		aux := token.GetText().GetContent()
 			if (prepend && (string(aux[len(aux)-1]) == "x")) {
 				asnValue, err = strconv.Atoi(aux[:len(aux)-1])
 				if err != nil {
@@ -260,6 +259,7 @@ func parseSentencesPeerControls(sentence []*languagepb.Token) (error) {
 				}
 				continue
 			}
+		if nextPeer {
 			peers += token.GetLemma() + " "
 			continue
 		}
