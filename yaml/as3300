@@ -1,3 +1,13 @@
+localpreference:
+  setcustomerroute:
+  - value: 0
+    community: 0
+  - value: 50
+    community: 901
+  - value: 150
+    community: 902
+  - value: 250
+    community: 903
 peercontrol:
   donotannounce:
   - peer: ""

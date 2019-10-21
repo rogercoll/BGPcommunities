@@ -48,3 +48,8 @@ PEER_CONTROLS.
 3300:2327 do not announce to AS22934, CET Networks.
 3300:2328 do not announce to AS19029, New Edge Networks.
 3300:2330 do not announce to AS25973, Mzima.
+
+LOCAL_PREFERENCE.
+3300:0901 set localpref to 50.
+3300:0902 set localpref to 150.
+3300:0903 set localpref to 250.
