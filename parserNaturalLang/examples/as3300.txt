@@ -1,0 +1,50 @@
+PEER_CONTROLS.
+3300:2100 do not announce to all peers.
+3300:2102 do not announce to AS286, KPN Eurorings.
+3300:2103 do not announce to AS2686, IBM GN.
+3300:2105 do not announce to AS702, UUNET.
+3300:2106 do not announce to AS3333, RIPE NCC.
+3300:2108 do not announce to AS8220, COLT eu.
+3300:2109 do not announce to AS6830, UPC (Formally Chello).
+3300:2110 do not announce to AS1239, Sprint.
+3300:2111 do not announce to AS3549, Global Crossing.
+3300:2113 do not announce to AS5583, Equant.
+3300:2115 do not announce to AS5413, Concentric EU.
+3300:2116 do not announce to AS2914, Verio.
+3300:2117 do not announce to AS5400, BT.
+3300:2119 do not announce to AS3291, PSInet Europe.
+3300:2120 do not announce to AS2874, Global One.
+3300:2121 do not announce to AS1136, KPN.
+3300:2122 do not announce to AS2818, BBC Interney Services, UK.
+3300:2123 do not announce to AS3561, Cable&Wireless.
+3300:2125 do not announce to AS8560, Schlund + Partner.
+3300:2128 do not announce to AS3292, TDC.
+3300:2129 do not announce to AS15412, FLAG.
+3300:2130 do not announce to AS3303, Swisscom.
+3300:2131 do not announce to AS1273, C&W Europe.
+3300:2132 do not announce to AS174, Cogent Communications.
+3300:2300 do not announce to all peers.
+3300:2301 do not announce to AS6461, MFN.
+3300:2302 do not announce to AS6079, RCN.
+3300:2303 do not announce to AS8001, Net Access Corp.
+3300:2304 do not announce to AS8220, Colt USA.
+3300:2305 do not announce to AS2497, IJJ (Japan).
+3300:2306 do not announce to AS2516, KDDI.
+3300:2309 do not announce to AS4513, GLOBIX.
+3300:2311 do not announce to AS11867, PRIMUSTEL.
+3300:2313 do not announce to AS2914, VERIO.
+3300:2314 do not announce to AS4181, TDS Telecom.
+3300:2315 do not announce to AS7132, SBC (East-coast).
+3300:2316 do not announce to AS7132, SBC (West-coast).
+3300:2317 do not announce to AS8075, Microsoft USA.
+3300:2319 do not announce to AS7911, Williams Communications.
+3300:2320 do not announce to AS297, NASA.
+3300:2321 do not announce to AS10310, Yahoo.
+3300:2322 do not announce to AS3491, BT-PCCW.
+3300:2323 do not announce to AS14361, Hop One.
+3300:2324 do not announce to AS4323, Time Warner.
+3300:2325 do not announce to AS6830, UPC - USA.
+3300:2326 do not announce to AS4788, TMNet.
+3300:2327 do not announce to AS22934, CET Networks.
+3300:2328 do not announce to AS19029, New Edge Networks.
+3300:2330 do not announce to AS25973, Mzima.
