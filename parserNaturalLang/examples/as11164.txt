@@ -1,0 +1,19 @@
+NO_EXPORT.
+11164:52300 Do not export to Extended Peers.
+11164:52200 Do not export to transit.
+11164:52500 Do not export to peer-links in Asia-Pac.
+11164:52600 Do not export to peer-links in Europe.
+
+PEER_CONTROLS.
+11164:52401 Prepend 1x to North American peers.
+11164:52402 Prepend 2x to North American peers.
+11164:52403 Prepend 3x to North American peers.
+11164:52201 Prepend 1x to transit.
+11164:52202 Prepend 2x to transit.
+11164:52203 Prepend 3x to transit.
+11164:52501 Prepend 1x to peer-links in Asia-Pac.
+11164:52502 Prepend 2x to peer-links in Asia-Pac.
+11164:52503 Prepend 3x to peer-links in Asia-Pac.
+11164:52601 Prepend 1x to peer-links in Europe.
+11164:52602 Prepend 2x to peer-links in Europe.
+11164:52603 Prepend 3x to peer-links in Europe.

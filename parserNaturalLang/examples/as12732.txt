@@ -1,0 +1,38 @@
+PEER_CONTROLS.
+12732:1000 do not announce to BCIX.
+12732:1001 prepend 1x to BCIX.
+12732:1002 prepend 2x to BCIX.
+12732:2000 do not announce to FFM/DeCIX.
+12732:2001 prepend 1x to FFM/DeCIX.
+12732:2002 prepend 2x to FFM/DeCIX.
+12732:3000 do not announce to DUS/ECIX.
+12732:3001 prepend 1x to DUS/ECIX.
+12732:3002 prepend 2x to DUS/ECIX.
+12732:3050 do not announce to BLN/ECIX.
+12732:3051 prepend 1x to BLN/ECIX.
+12732:3052 prepend 2x to BLN/ECIX.
+12732:3100 do not announce to HBG/ECIX.
+12732:3101 prepend 1x to HBG/ECIX.
+12732:3102 prepend 2x to HBG/ECIX.
+12732:4000 do not announce to KLEYREX.
+12732:4001 prepend 1x to KLEYREX.
+12732:4002 prepend 2x to KLEYREX.
+12732:4100 do not announce to QSC.
+12732:4101 prepend 1x to QSC.
+12732:4102 prepend 2x to QSC.
+12732:4200 do not announce to DECIX.
+12732:4201 prepend 1x to DECIX.
+12732:4202 prepend 2x to DECIX.
+12732:4300 do not announce to AMSIX.
+12732:4301 prepend 1x to AMSIX.
+12732:4302 prepend 2x to AMSIX.
+12732:4400 do not announce to LINX.
+12732:4401 prepend 1x to LINX.
+12732:4402 prepend 2x to LINX.
+12732:9010 do not announce to PL.
+12732:9011 do not announce to LA.
+12732:9012 do not announce to ME.
+12732:9013 do not announce to CO.
+12732:9014 do not announce to KP.
+12732:9015 do not announce to L3.
+12732:9016 do not announce to SY.

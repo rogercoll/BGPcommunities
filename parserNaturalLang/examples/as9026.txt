@@ -1,0 +1,22 @@
+LOCAL_PREFERENCE.
+9026:10001 Set Local-Preference to 50.
+9026:10002 Set Local-Preference to 150.
+9026:10003 Set Local-Preference to 200.
+9026:10004 Set Local-Preference to 250.
+
+PEER_CONTROLS.
+9026:10010 Do not announce to MIX.
+9026:10011 prepend 1x announcing to MIX.
+9026:10012 2 prepend 2x announcing to MIX.
+9026:10013 3 prepend 3x announcing to MIX.
+9026:10014 4 prepend 4x announcing to MIX.
+9026:10020 Do not announce to AS5602.
+9026:10021 prepend 1x announcing to AS5602.
+9026:10022 prepend 2x announcing to AS5602.
+9026:10023 prepend 3x announcing to AS5602.
+9026:10024 prepend 4x announcing to AS5602.
+9026:10070 Do not announce to AS49605.
+9026:10071 prepend 1x announcing to AS49605.
+9026:10072 prepend 2x announcing to AS49605.
+9026:10073 prepend 3x announcing to AS49605.
+9026:10074 prepend 4x announcing to AS49605.

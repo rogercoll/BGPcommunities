@@ -1,0 +1,10 @@
+PEER_CONTROLS.
+8218:2010	do not announce to AS6461 (AboveNet).
+8218:2020	do not announce to transit-1 (AS3257 Tiscali).
+8218:2021	prepend 1x to transit-1.
+8218:2022	prepend 2x to transit-1.
+8218:2023	prepend 3x to transit-1.
+8218:2030	do not announce to transit-2 (AS3549 Global Crossing).
+8218:2031	prepend 1x to transit-2.
+8218:2032	prepend 2x to transit-2.
+8218:2033	prepend 3x to transit-2.
