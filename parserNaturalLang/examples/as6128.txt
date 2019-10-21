@@ -1,0 +1,13 @@
+NO_EXPORT.
+6128:600	Do NOT export announcement to transit peers.
+6128:610	Do NOT export to public peers.
+6128:666	Do NOT export to non-customer peers.
+
+LOCAL_PREFERENCE.
+6128:110	CST	BGP Customer Local Preference to 110.
+6128:120	CST	BGP Customer Local Preference to 120.
+
+PEER_CONTROLS.
+6128:1	prepend 1x to non-customer borders/private peers.
+6128:2	prepend 2x to non-customer borders/private peers.
+6128:3	prepend 3x to non-customer borders/private peers.

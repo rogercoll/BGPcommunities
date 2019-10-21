@@ -1,0 +1,6 @@
+PEER_CONTROLS.
+5408:4001 Do not announce to GRIX.
+5408:4005 Do not announce to GEANT.
+5408:4006 Do not announce to GEANT NREN VRF.
+5408:4007 Do not announce to GEANT Tier-1.
+5408:2005 Prepend to AS5408 5x.

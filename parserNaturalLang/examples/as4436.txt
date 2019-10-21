@@ -1,0 +1,17 @@
+PEER_CONTROLS.
+4436:1000	Prepend 1x in globally.
+4436:2010	Prepend 2x in North America.
+4436:3111	Prepend 3x in Ashburn.
+
+LOCAL_PREFERENCE.
+4436:50 Set local preference to 50.
+4436:100 Set local preference to 100.
+4436:150 Set local preference to 150.
+4436:200 Set local preference to 200.
+4436:250 Set local preference to 250.
+4436:300 Set local preference to 300.
+4436:350 Set local preference to 350.
+
+OTHER_COMMUNITIES.
+4436:666 Null route all traffic to this prefix globally.
+4436:999 Do not export out of the current region .
