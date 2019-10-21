@@ -8,7 +8,7 @@ type DoNotAnnounce struct {
 type Prepend struct {
 	What string	`yaml:"what`
 	Times int	`yaml:"times"`
-	Community int64 `yaml:"community"`
+	Community int `yaml:"community"`
 }
 
 type PeerControl struct {

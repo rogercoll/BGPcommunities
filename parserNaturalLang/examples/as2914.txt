@@ -1,0 +1,29 @@
+PEER_CONTROLS.
+2914:4011   prepend o/b to all customers 1x in North America.
+2914:4012	prepend o/b to all customers 2x in North America.
+2914:4013	prepend o/b to all customers 3x in North America.
+2914:4021	prepend o/b to all peers 1x in North America.
+2914:4022	prepend o/b to all peers 2x in North America.
+2914:4023	prepend o/b to all peers 3x in North America.
+2914:4029	do not advertise to any peer in North America.
+2914:4211	prepend o/b to all customers 1x in Europe.
+2914:4212	prepend o/b to all customers 2x in Europe.
+2914:4213	prepend o/b to all customers 3x in Europe.
+2914:4221	prepend o/b to all peers 1x in Europe.
+2914:4222	prepend o/b to all peers 2x in Europe.
+2914:4223	prepend o/b to all peers 3x in Europe.
+2914:4229	do not advertise to any peer in Europe.
+2914:4411	prepend o/b to all customers 1x in Asia.
+2914:4412	prepend o/b to all customers 2x in Asia.
+2914:4413	prepend o/b to all customers 3x in Asia.
+2914:4421	prepend o/b to all peers 1x in Asia.
+2914:4422	prepend o/b to all peers 2x in Asia.
+2914:4423	prepend o/b to all peers 3x in Asia.
+2914:4429	do not advertise to any peer in Asia.
+2914:4611	prepend o/b to all customers 1x in South America.
+2914:4612	prepend o/b to all customers 2x in South America.
+2914:4613	prepend o/b to all customers 3x in South America.
+2914:4621	prepend o/b to all peers 1x in South America.
+2914:4622	prepend o/b to all peers 2x in South America.
+2914:4623	prepend o/b to all peers 3x in South America.
+2914:4629	do not advertise to any peer in South America.

@@ -202,13 +202,20 @@ func parseSentencesLocalPreference(sentence []*languagepb.Token) (error) {
 func parseSentencesPeerControls(sentence []*languagepb.Token) (error) {
 	var err error
 	var as,community,asnValue int
-	nextPeer := false
+	nextPeer, prepend := false, false
 	peers := ""
 	foundDoublePoint := false
 	for _,token := range sentence {
-		//fmt.Printf("Lemma: %v ", token.GetLemma())
 		tTag := token.GetPartOfSpeech().GetTag()
-		//fmt.Printf("Tag :%v ", tTag)
+		fmt.Println(token.GetText().GetContent())
+		if token.GetText().GetContent() == "Prepend" || token.GetText().GetContent() == "prepend" {
+			prepend = true
+		}
+		if tTag == 11 {
+			if token.GetLemma() == "Prepend" || token.GetText().GetContent() == "Prepend" {
+				prepend = true
+			}
+		}
 		//2 equals to Adposition (preposition and postposition)
 		if tTag == 2 {
 			if token.GetLemma() == "to" {
@@ -223,41 +230,54 @@ func parseSentencesPeerControls(sentence []*languagepb.Token) (error) {
 		}
 		//7 equals to NUM
 		if tTag == 7 {
-			if nextPeer {
+			if nextPeer{
 				asnValue, err = strconv.Atoi(token.GetLemma())
 				if err != nil {
 					return err
 				}
 				nextPeer = false
 			} else {
-				if foundDoublePoint {
-					community, err = strconv.Atoi(token.GetLemma())
-					if err != nil {
-						return err
-					}
-				} else {
-					as, err = strconv.Atoi(token.GetLemma())
-					if err != nil {
-						return err
-					}
+					if foundDoublePoint {
+						community, err = strconv.Atoi(token.GetLemma())
+						if err != nil {
+							return err
+						}
+					} else {
+						as, err = strconv.Atoi(token.GetLemma())
+						if err != nil {
+							return err
+						}
 				}
+				
 			}
 		}
 		if nextPeer {
+			aux := token.GetText().GetContent()
+			if (prepend && (string(aux[len(aux)-1]) == "x")) {
+				asnValue, err = strconv.Atoi(aux[:len(aux)-1])
+				if err != nil {
+					return err
+				}
+				continue
+			}
 			peers += token.GetLemma() + " "
 			continue
 		}
 	}
 	fmt.Println()
 	newConf.As = as
-	comm := communities.DoNotAnnounce{Peer: peers, Asn: asnValue, Community: community}
-	newConf.PeerControls.DoNotAnnounces = append(newConf.PeerControls.DoNotAnnounces, comm)
-	fmt.Println(comm)
+	if prepend {
+		comm := communities.Prepend{What: peers, Times: asnValue, Community: community}
+		newConf.PeerControls.Prepends = append(newConf.PeerControls.Prepends, comm)
+	} else {
+		comm := communities.DoNotAnnounce{Peer: peers, Asn: asnValue, Community: community}
+		newConf.PeerControls.DoNotAnnounces = append(newConf.PeerControls.DoNotAnnounces, comm)
+		fmt.Println(comm)
+	}
 	return nil
 }
 
 func parseSentencesOther(sentence []*languagepb.Token) (error) {
-	fmt.Println("hey")
 	var err error
 	from, what, verbs := "", "", ""
 	fromdetect, foundDoublePoint := false, false

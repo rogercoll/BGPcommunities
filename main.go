@@ -52,7 +52,6 @@ func main() {
 		log.Println(f.Name())
 		text := ""
 		text = readFromFile(dir + f.Name())
-		log.Println(text)
 		ctx := context.Background()
 		client, err := parserNaturalLang.NewClient(ctx)
 		if err != nil {

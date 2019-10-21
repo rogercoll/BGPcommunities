@@ -1,0 +1,91 @@
+peercontrol:
+  donotannounce:
+  - peer: ""
+    asn: 0
+    community: 0
+  - peer: 'any peer in North America '
+    asn: 0
+    community: 4029
+  - peer: 'any peer in Europe '
+    asn: 0
+    community: 4229
+  - peer: 'any peer in Asia '
+    asn: 0
+    community: 4429
+  - peer: 'any peer in South America '
+    asn: 0
+    community: 4629
+  prepend:
+  - what: 'all customer in North America '
+    times: 1
+    community: 4011
+  - what: 'all customer in North America '
+    times: 2
+    community: 4012
+  - what: 'all customer in North America '
+    times: 3
+    community: 4013
+  - what: 'all peer in North America '
+    times: 1
+    community: 4021
+  - what: 'all peer in North America '
+    times: 2
+    community: 4022
+  - what: 'all peer in North America '
+    times: 3
+    community: 4023
+  - what: 'all customer in Europe '
+    times: 1
+    community: 4211
+  - what: 'all customer in Europe '
+    times: 2
+    community: 4212
+  - what: 'all customer in Europe '
+    times: 3
+    community: 4213
+  - what: 'all peer in Europe '
+    times: 1
+    community: 4221
+  - what: 'all peer in Europe '
+    times: 2
+    community: 4222
+  - what: 'all peer in Europe '
+    times: 3
+    community: 4223
+  - what: 'all customer in Asia '
+    times: 1
+    community: 4411
+  - what: 'all customer in Asia '
+    times: 2
+    community: 4412
+  - what: 'all customer in Asia '
+    times: 3
+    community: 4413
+  - what: 'all peer in Asia '
+    times: 1
+    community: 4421
+  - what: 'all peer in Asia '
+    times: 2
+    community: 4422
+  - what: 'all peer in Asia '
+    times: 3
+    community: 4423
+  - what: 'all customer in South America '
+    times: 1
+    community: 4611
+  - what: 'all customer in South America '
+    times: 2
+    community: 4612
+  - what: 'all customer in South America '
+    times: 3
+    community: 4613
+  - what: 'all peer in South America '
+    times: 1
+    community: 4621
+  - what: 'all peer in South America '
+    times: 2
+    community: 4622
+  - what: 'all peer in South America '
+    times: 3
+    community: 4623
+as: 2914
