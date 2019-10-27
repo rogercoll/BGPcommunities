@@ -1,7 +1,5 @@
 localpreference:
   setcustomerroute:
-  - value: 0
-    community: 0
   - value: 50
     community: 50
   - value: 60
@@ -14,8 +12,6 @@ localpreference:
     community: 90
   - value: 120
     community: 120
-  - value: 0
-    community: 0
   - value: 0
     community: 4506
   - value: 0
